@@ -22,7 +22,8 @@ pipeline {
         bat 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle build'
         bat 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle javadoc'
         archiveArtifacts 'build/libs/*.jar'
-        junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)
+
+        junit(testResults: 'build/test-results/test/*.xml', skipPublishingChecks: true, allowEmptyResults: true)
       }
     }
 

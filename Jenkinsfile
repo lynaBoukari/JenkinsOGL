@@ -19,7 +19,7 @@ pipeline {
 
       }
       steps {
-        bat 'gradle build'
+        bat 'build'
         bat 'gradle javadoc'
         archiveArtifacts 'build/libs/*.jar'
         junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults: true)

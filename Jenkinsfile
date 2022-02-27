@@ -37,7 +37,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('Jenkins') {
+            withSonarQubeEnv('My SonarQube Server') {
               bat(script: 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle sonarqube', returnStatus: true)
             }
 

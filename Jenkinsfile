@@ -29,7 +29,7 @@ pipeline {
 
     stage('Mail Notification') {
       steps {
-        mail(subject: 'Project JenkinsOGL notification', body: mail, cc: 'il_boukari@esi.dz'bcc:'is_bouzoul@esi.dz')
+        mail(subject: 'Project JenkinsOGL notification', body: mail, cc: 'il_boukari@esi.dz' ,bcc:'is_bouzoul@esi.dz')
       }
     }
 

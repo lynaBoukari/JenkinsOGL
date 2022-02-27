@@ -1,29 +1,31 @@
 plugins {
+    id 'groovy'
     id 'java'
     id 'jacoco'
     id "org.sonarqube" version "3.1.1"
-    id 'maven-publish'
-
-
+    id "maven-publish"
 }
+apply plugin: 'maven-publish'
 
-group 'com.example'
-version '1.0'
-
-sourceCompatibility = 1.8
+group 'org.example'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:6.0.0'
+    testImplementation 'io.cucumber:cucumber-junit:6.0.0'
+    testImplementation 'junit:junit:4.12'
 
-
+}
 publishing {
     repositories {
         maven {
-            url System.getenv("url")
+            url 'https://mymavenrepo.com/repo/lxJsb9auGhkvGcKArN0R/'
             credentials {
-                username System.getenv("username")
-                password System.getenv("password")
+                username 'myMavenRepo'
+                password 'oglsil1'
             }
         }
     }
@@ -34,17 +36,3 @@ publishing {
         }
     }
 }
-
-
-
-
-
-
-
-dependencies {
-    testImplementation 'io.cucumber:cucumber-java:6.0.0'
-    testImplementation 'io.cucumber:cucumber-junit:6.0.0'
-    testImplementation 'junit:junit:4.12'
-}
-
-

@@ -12,7 +12,7 @@ pipeline {
 
         success {
           script {
-            mail=" Build termine avec succe "
+            mail=" Build termine avec succes "
           }
 
         }

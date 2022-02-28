@@ -19,8 +19,8 @@ pipeline {
 
       }
       steps {
-        bat 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle build'
-        bat 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle javadoc'
+        bat 'gradle build'
+        bat 'gradle javadoc'
         archiveArtifacts 'build/libs/*.jar'
 
         junit(testResults: 'build/test-results/test/*.xml', skipPublishingChecks: true, allowEmptyResults: true)
@@ -38,7 +38,7 @@ pipeline {
         stage('Code Analysis') {
           steps {
             withSonarQubeEnv('My SonarQube Server') {
-              bat(script: 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle sonarqube', returnStatus: true)
+              bat(script: 'gradle sonarqube', returnStatus: true)
             }
 
             waitForQualityGate true
@@ -56,7 +56,7 @@ pipeline {
 
     stage('Deployment') {
       steps {
-        bat 'C:/Users/HP/.gradle/wrapper/dists/gradle-7.1-bin/4pslxx9lrxt5svtz5wbnb6tkz/gradle-7.1/bin/gradle publish'
+        bat 'gradle publish'
       }
     }
 

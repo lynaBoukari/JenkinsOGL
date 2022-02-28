@@ -12,7 +12,7 @@ pipeline {
 
         success {
           script {
-            mail=" Build termine avec success "
+            mail=" Build termine avec succe "
           }
 
         }
@@ -37,7 +37,7 @@ pipeline {
       parallel {
         stage('Code Analysis') {
           steps {
-            withSonarQubeEnv('My SonarQube Server') {
+            withSonarQubeEnv('sonar') {
               bat(script: 'gradle sonarqube', returnStatus: true)
             }
 

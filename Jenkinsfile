@@ -5,14 +5,14 @@ pipeline {
       post {
         failure {
           script {
-            mail= " Build terminé avec échec "
+            mail= " Build termine avec échec "
           }
 
         }
 
         success {
           script {
-            mail=" Build terminé avec success "
+            mail=" Build termine avec success "
           }
 
         }
